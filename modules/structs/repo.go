@@ -103,7 +103,7 @@ type CreateRepoOption struct {
 	//
 	// required: true
 	// unique: true
-	Name string `json:"name" binding:"Required;AlphaDashDot;MaxSize(100)"`
+	Name string `json:"name" binding:"Required;MaxSize(100)"`
 	// Description of the repository to create
 	Description string `json:"description" binding:"MaxSize(255)"`
 	// Whether the repository is private
