@@ -232,7 +232,7 @@ func Validate(req *http.Request, obj interface{}) Errors {
 
 var (
 	AlphaDashPattern    = regexp.MustCompile(`[^\d\w-_]`)
-	AlphaDashDotPattern = regexp.MustCompile(`[^\d\w-_\.]`)
+	AlphaDashDotPattern = regexp.MustCompile(`[^a-zA-Zà-ÿÀ-ß-_\.]`)
 	EmailPattern        = regexp.MustCompile(`\A[\w!#$%&'*+/=?^_`+"`"+`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`+"`"+`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[a-zA-Z0-9](?:[\w-]*[\w])?\z`)
 )
 
