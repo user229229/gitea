@@ -22,7 +22,7 @@ import (
 var (
 	// validNamePattern performs only the most basic validation for user or repository names
 	// Repository name should contain only alphanumeric, dash ('-'), underscore ('_') and dot ('.') characters.
-	validNamePattern = regexp.MustCompile(`^[a-z0-9_.-]+$`)
+	validNamePattern = regexp.MustCompile(`^[a-z0-9а-яА-Я_.-]+$`)
 
 	// NOTE: All below regex matching do not perform any extra validation.
 	// Thus a link is produced even if the linked entity does not exist.
