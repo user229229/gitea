@@ -1,8 +1,8 @@
 # Swap
-[._]*.s[a-v][a-z]
+[._]*.s[a-v][a-zа-я]
 !*.svg  # comment out if you don't need vector files
 [._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
+[._]s[a-rt-v][a-zа-я]
 [._]ss[a-gi-z]
 [._]sw[a-p]
 

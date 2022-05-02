@@ -16,8 +16,8 @@ var (
 	// ErrNameEmpty name is empty error
 	ErrNameEmpty = errors.New("Name is empty")
 
-	// AlphaDashDotPattern characters prohibited in a user name (anything except A-Za-z0-9_.-)
-	AlphaDashDotPattern = regexp.MustCompile(`[^a-zA-Zа-яА-Я0-9-\.]`)
+	// AlphaDashDotPattern characters prohibited in a user name (anything except A-ZА-Яa-zа-я0-9_.-)
+	AlphaDashDotPattern = regexp.MustCompile(`[^a-zа-яA-ZА-Яа-яА-Я0-9-\.]`)
 )
 
 // ErrNameReserved represents a "reserved name" error.

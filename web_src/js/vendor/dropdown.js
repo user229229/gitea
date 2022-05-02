@@ -3810,7 +3810,7 @@ $.fn.dropdown = function(parameters) {
                   }
               ;
               if(shouldEscape.test(string)) {
-                  string = string.replace(/&(?![a-z0-9#]{1,6};)/, "&amp;");
+                  string = string.replace(/&(?![a-zа-я0-9#]{1,6};)/, "&amp;");
                   return string.replace(badChars, escapedChar);
               }
               return string;
@@ -4237,7 +4237,7 @@ $.fn.dropdown.settings.templates = {
         }
     ;
     if(shouldEscape.test(string)) {
-      string = string.replace(/&(?![a-z0-9#]{1,6};)/, "&amp;");
+      string = string.replace(/&(?![a-zа-я0-9#]{1,6};)/, "&amp;");
       return string.replace(badChars, escapedChar);
     }
     return string;

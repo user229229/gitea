@@ -40,7 +40,7 @@ const (
 
 var (
 	separatorAntiPattern = regexp.MustCompile(`[^\w-\.]`)
-	langCodePattern      = regexp.MustCompile(`^[a-z]{2}-[A-Z]{2}$`)
+	langCodePattern      = regexp.MustCompile(`^[a-zа-я]{2}-[A-ZА-Я]{2}$`)
 )
 
 // Authentications show authentication config page

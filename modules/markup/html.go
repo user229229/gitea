@@ -41,7 +41,7 @@ var (
 	// While fast, this is also incorrect and lead to false positives.
 	// TODO: fix invalid linking issue
 
-	// valid chars in encoded path and parameter: [-+~_%.a-zA-Z0-9/]
+	// valid chars in encoded path and parameter: [-+~_%.a-zа-яA-ZА-Я0-9/]
 
 	// sha1CurrentPattern matches string that represents a commit SHA, e.g. d8a994ef243349f321568f9e36d5c3f444b99cae
 	// Although SHA1 hashes are 40 chars long, the regex matches the hash from 7 to 40 chars in length
@@ -52,19 +52,19 @@ var (
 	shortLinkPattern = regexp.MustCompile(`\[\[(.*?)\]\](\w*)`)
 
 	// anySHA1Pattern splits url containing SHA into parts
-	anySHA1Pattern = regexp.MustCompile(`https?://(?:\S+/){4,5}([0-9a-f]{40})(/[-+~_%.a-zA-Z0-9/]+)?(#[-+~_%.a-zA-Z0-9]+)?`)
+	anySHA1Pattern = regexp.MustCompile(`https?://(?:\S+/){4,5}([0-9a-f]{40})(/[-+~_%.a-zа-яA-ZА-Я0-9/]+)?(#[-+~_%.a-zа-яA-ZА-Я0-9]+)?`)
 
 	// comparePattern matches "http://domain/org/repo/compare/COMMIT1...COMMIT2#hash"
-	comparePattern = regexp.MustCompile(`https?://(?:\S+/){4,5}([0-9a-f]{40})(\.\.\.?)([0-9a-f]{40})?(#[-+~_%.a-zA-Z0-9]+)?`)
+	comparePattern = regexp.MustCompile(`https?://(?:\S+/){4,5}([0-9a-f]{40})(\.\.\.?)([0-9a-f]{40})?(#[-+~_%.a-zа-яA-ZА-Я0-9]+)?`)
 
-	validLinksPattern = regexp.MustCompile(`^[a-z][\w-]+://`)
+	validLinksPattern = regexp.MustCompile(`^[a-zа-я][\w-]+://`)
 
 	// While this email regex is definitely not perfect and I'm sure you can come up
 	// with edge cases, it is still accepted by the CommonMark specification, as
 	// well as the HTML5 spec:
 	//   http://spec.commonmark.org/0.28/#email-address
 	//   https://html.spec.whatwg.org/multipage/input.html#e-mail-state-(type%3Demail)
-	emailRegex = regexp.MustCompile("(?:\\s|^|\\(|\\[)([a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9]{2,}(?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+)(?:\\s|$|\\)|\\]|\\.(\\s|$))")
+	emailRegex = regexp.MustCompile("(?:\\s|^|\\(|\\[)([a-zа-яA-ZА-Я0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zа-яA-ZА-Я0-9](?:[a-zа-яA-ZА-Я0-9-]{0,61}[a-zа-яA-ZА-Я0-9])?(?:\\.[a-zа-яA-ZА-Я0-9]{2,}(?:[a-zа-яA-ZА-Я0-9-]{0,61}[a-zа-яA-ZА-Я0-9])?)+)(?:\\s|$|\\)|\\]|\\.(\\s|$))")
 
 	// blackfriday extensions create IDs like fn:user-content-footnote
 	blackfridayExtRegex = regexp.MustCompile(`[^:]*:user-content-`)
@@ -108,7 +108,7 @@ func getIssueFullPattern() *regexp.Regexp {
 func CustomLinkURLSchemes(schemes []string) {
 	schemes = append(schemes, "http", "https")
 	withAuth := make([]string, 0, len(schemes))
-	validScheme := regexp.MustCompile(`^[a-z]+$`)
+	validScheme := regexp.MustCompile(`^[a-zа-я]+$`)
 	for _, s := range schemes {
 		if !validScheme.MatchString(s) {
 			continue

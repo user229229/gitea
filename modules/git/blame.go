@@ -32,7 +32,7 @@ type BlameReader struct {
 	finished process.FinishedFunc // Tells the process manager we're finished and it can remove the associated process from the process table
 }
 
-var shaLineRegex = regexp.MustCompile("^([a-z0-9]{40})")
+var shaLineRegex = regexp.MustCompile("^([a-zа-я0-9]{40})")
 
 // NextPart returns next part of blame (sequential code lines with the same commit)
 func (r *BlameReader) NextPart() (*BlamePart, error) {

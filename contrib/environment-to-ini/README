@@ -25,7 +25,7 @@ The environment variables should be of the form:
 Note, SECTION_NAME in the notation above is case-insensitive.
 
 Environment variables are usually restricted to a reduced character
-set "0-9A-Z_" - in order to allow the setting of sections with
+set "0-9A-ZА-Я_" - in order to allow the setting of sections with
 characters outside of that set, they should be escaped as following:
 "_0X2E_" for "." and "_0X2D_" for "-". The entire section and key names 
 can be escaped as a UTF8 byte string if necessary. E.g. to configure:

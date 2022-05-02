@@ -344,7 +344,7 @@ func (r *HTMLRenderer) renderSummary(w util.BufWriter, source []byte, node ast.N
 	return ast.WalkContinue, nil
 }
 
-var validNameRE = regexp.MustCompile("^[a-z ]+$")
+var validNameRE = regexp.MustCompile("^[a-zа-я ]+$")
 
 func (r *HTMLRenderer) renderIcon(w util.BufWriter, source []byte, node ast.Node, entering bool) (ast.WalkStatus, error) {
 	if !entering {

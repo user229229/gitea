@@ -130,13 +130,13 @@ func Test_RandomInt(t *testing.T) {
 func Test_RandomString(t *testing.T) {
 	str1, err := RandomString(32)
 	assert.NoError(t, err)
-	matches, err := regexp.MatchString(`^[a-zA-Z0-9]{32}$`, str1)
+	matches, err := regexp.MatchString(`^[a-zа-яA-ZА-Я0-9]{32}$`, str1)
 	assert.NoError(t, err)
 	assert.True(t, matches)
 
 	str2, err := RandomString(32)
 	assert.NoError(t, err)
-	matches, err = regexp.MatchString(`^[a-zA-Z0-9]{32}$`, str1)
+	matches, err = regexp.MatchString(`^[a-zа-яA-ZА-Я0-9]{32}$`, str1)
 	assert.NoError(t, err)
 	assert.True(t, matches)
 
@@ -144,13 +144,13 @@ func Test_RandomString(t *testing.T) {
 
 	str3, err := RandomString(256)
 	assert.NoError(t, err)
-	matches, err = regexp.MatchString(`^[a-zA-Z0-9]{256}$`, str3)
+	matches, err = regexp.MatchString(`^[a-zа-яA-ZА-Я0-9]{256}$`, str3)
 	assert.NoError(t, err)
 	assert.True(t, matches)
 
 	str4, err := RandomString(256)
 	assert.NoError(t, err)
-	matches, err = regexp.MatchString(`^[a-zA-Z0-9]{256}$`, str4)
+	matches, err = regexp.MatchString(`^[a-zа-яA-ZА-Я0-9]{256}$`, str4)
 	assert.NoError(t, err)
 	assert.True(t, matches)
 

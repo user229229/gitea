@@ -6629,7 +6629,7 @@ $.fn.dropdown = function(parameters) {
                   }
               ;
               if(shouldEscape.test(string)) {
-                  string = string.replace(/&(?![a-z0-9#]{1,6};)/, "&amp;");
+                  string = string.replace(/&(?![a-zа-я0-9#]{1,6};)/, "&amp;");
                   return string.replace(badChars, escapedChar);
               }
               return string;
@@ -7056,7 +7056,7 @@ $.fn.dropdown.settings.templates = {
         }
     ;
     if(shouldEscape.test(string)) {
-      string = string.replace(/&(?![a-z0-9#]{1,6};)/, "&amp;");
+      string = string.replace(/&(?![a-zа-я0-9#]{1,6};)/, "&amp;");
       return string.replace(badChars, escapedChar);
     }
     return string;
@@ -8680,10 +8680,10 @@ $.fn.form.settings = {
   },
 
   regExp: {
-    htmlID  : /^[a-zA-Z][\w:.-]*$/g,
+    htmlID  : /^[a-zа-яA-ZА-Я][\w:.-]*$/g,
     bracket : /\[(.*)\]/i,
     decimal : /^\d+\.?\d*$/,
-    email   : /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i,
+    email   : /^[a-zа-я0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zа-я0-9]([a-zа-я0-9-]*[a-zа-я0-9])?(\.[a-zа-я0-9]([a-zа-я0-9-]*[a-zа-я0-9])?)*$/i,
     escape  : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|:,=@]/g,
     flags   : /^\/(.*)\/(.*)?/,
     integer : /^\-?\d+$/,
@@ -11913,7 +11913,7 @@ $.fn.popup.settings = {
         }
       ;
       if(shouldEscape.test(string)) {
-        string = string.replace(/&(?![a-z0-9#]{1,6};)/, "&amp;");
+        string = string.replace(/&(?![a-zа-я0-9#]{1,6};)/, "&amp;");
         return string.replace(badChars, escapedChar);
       }
       return string;
@@ -14391,7 +14391,7 @@ $.fn.search.settings = {
         }
       ;
       if(shouldEscape.test(string)) {
-        string = string.replace(/&(?![a-z0-9#]{1,6};)/, "&amp;");
+        string = string.replace(/&(?![a-zа-я0-9#]{1,6};)/, "&amp;");
         return string.replace(badChars, escapedChar);
       }
       return string;

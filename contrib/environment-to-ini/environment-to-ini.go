@@ -34,7 +34,7 @@ func main() {
 	"KEY_NAME" with the value as provided.
 
 	Environment variables are usually restricted to a reduced character
-	set "0-9A-Z_" - in order to allow the setting of sections with
+	set "0-9A-ZА-Я_" - in order to allow the setting of sections with
 	characters outside of that set, they should be escaped as following:
 	"_0X2E_" for ".". The entire section and key names can be escaped as
 	a UTF8 byte string if necessary. E.g. to configure:
@@ -182,7 +182,7 @@ const escapeRegexpString = "_0[xX](([0-9a-fA-F][0-9a-fA-F])+)_"
 var escapeRegex = regexp.MustCompile(escapeRegexpString)
 
 // DecodeSectionKey will decode a portable string encoded Section__Key pair
-// Portable strings are considered to be of the form [A-Z0-9_]*
+// Portable strings are considered to be of the form [A-ZА-Я0-9_]*
 // We will encode a disallowed value as the UTF8 byte string preceded by _0X and
 // followed by _. E.g. _0X2C_ for a '-' and _0X2E_ for '.'
 // Section and Key are separated by a plain '__'.

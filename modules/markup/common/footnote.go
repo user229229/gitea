@@ -26,7 +26,7 @@ import (
 // CleanValue will clean a value to make it safe to be an id
 // This function is quite different from the original goldmark function
 // and more closely matches the output from the shurcooL sanitizer
-// In particular Unicode letters and numbers are a lot more than a-zA-Z0-9...
+// In particular Unicode letters and numbers are a lot more than a-zа-яA-ZА-Я0-9...
 func CleanValue(value []byte) []byte {
 	value = bytes.TrimSpace(value)
 	rs := bytes.Runes(value)

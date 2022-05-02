@@ -18,7 +18,7 @@ import (
 	"github.com/yuin/goldmark/util"
 )
 
-var wwwURLRegxp = regexp.MustCompile(`^www\.[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}((?:/|[#?])[-a-zA-Z0-9@:%_\+.~#!?&//=\(\);,'">\^{}\[\]` + "`" + `]*)?`)
+var wwwURLRegxp = regexp.MustCompile(`^www\.[-a-zа-яA-ZА-Я0-9@:%._\+~#=]{2,256}\.[a-zа-я]{2,6}((?:/|[#?])[-a-zа-яA-ZА-Я0-9@:%_\+.~#!?&//=\(\);,'">\^{}\[\]` + "`" + `]*)?`)
 
 type linkifyParser struct {
 }

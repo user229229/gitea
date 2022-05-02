@@ -410,7 +410,7 @@ func (h *serviceHandler) sendFile(contentType, file string) {
 }
 
 // one or more key=value pairs separated by colons
-var safeGitProtocolHeader = regexp.MustCompile(`^[0-9a-zA-Z]+=[0-9a-zA-Z]+(:[0-9a-zA-Z]+=[0-9a-zA-Z]+)*$`)
+var safeGitProtocolHeader = regexp.MustCompile(`^[0-9a-zа-яA-ZА-Я]+=[0-9a-zа-яA-ZА-Я]+(:[0-9a-zа-яA-ZА-Я]+=[0-9a-zа-яA-ZА-Я]+)*$`)
 
 func getGitConfig(option, dir string) string {
 	out, err := git.NewCommand("config", option).RunInDir(dir)

@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-var scpSyntax = regexp.MustCompile(`^([a-zA-Z0-9_]+@)?([a-zA-Z0-9._-]+):(.*)$`)
+var scpSyntax = regexp.MustCompile(`^([a-zа-яA-ZА-Я0-9_]+@)?([a-zа-яA-ZА-Я0-9._-]+):(.*)$`)
 
 // SubModule submodule is a reference on git repository
 type SubModule struct {

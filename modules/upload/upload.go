@@ -32,7 +32,7 @@ func (err ErrFileTypeForbidden) Error() string {
 	return "This file extension or type is not allowed to be uploaded."
 }
 
-var wildcardTypeRe = regexp.MustCompile(`^[a-z]+/\*$`)
+var wildcardTypeRe = regexp.MustCompile(`^[a-zа-я]+/\*$`)
 
 // Verify validates whether a file is allowed to be uploaded.
 func Verify(buf []byte, fileName, allowedTypesStr string) error {

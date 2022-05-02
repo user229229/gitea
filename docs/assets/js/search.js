@@ -138,7 +138,7 @@ function populateResults(result) {
 
 function render(templateString, data) {
   let conditionalMatches, copy;
-  const conditionalPattern = /\$\{\s*isset ([a-zA-Z]*) \s*\}(.*)\$\{\s*end\s*}/g;
+  const conditionalPattern = /\$\{\s*isset ([a-zа-яA-ZА-Я]*) \s*\}(.*)\$\{\s*end\s*}/g;
   // since loop below depends on re.lastInxdex, we use a copy to capture any manipulations whilst inside the loop
   copy = templateString;
   while ((conditionalMatches = conditionalPattern.exec(templateString)) !== null) {

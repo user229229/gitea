@@ -167,7 +167,7 @@ func FileURLToPath(u *url.URL) (string, error) {
 	}
 
 	// If it looks like there's a Windows drive letter at the beginning, strip off the leading slash.
-	re := regexp.MustCompile("/[A-Za-z]:/")
+	re := regexp.MustCompile("/[A-ZА-Яa-zа-я]:/")
 	if re.MatchString(path) {
 		return path[1:], nil
 	}

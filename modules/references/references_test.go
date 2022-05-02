@@ -33,7 +33,7 @@ type testResult struct {
 func TestConvertFullHTMLReferencesToShortRefs(t *testing.T) {
 	re := regexp.MustCompile(`(\s|^|\(|\[)` +
 		regexp.QuoteMeta("https://ourgitea.com/git/") +
-		`([0-9a-zA-Z-_\.]+/[0-9a-zA-Z-_\.]+)/` +
+		`([0-9a-zа-яA-ZА-Я-_\.]+/[0-9a-zа-яA-ZА-Я-_\.]+)/` +
 		`((?:issues)|(?:pulls))/([0-9]+)(?:\s|$|\)|\]|[:;,.?!]\s|[:;,.?!]$)`)
 	test := `this is a https://ourgitea.com/git/owner/repo/issues/123456789, foo
 https://ourgitea.com/git/owner/repo/pulls/123456789

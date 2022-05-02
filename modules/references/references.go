@@ -22,7 +22,7 @@ import (
 var (
 	// validNamePattern performs only the most basic validation for user or repository names
 	// Repository name should contain only alphanumeric, dash ('-'), underscore ('_') and dot ('.') characters.
-	validNamePattern = regexp.MustCompile(`^[a-z0-9а-яА-Я_.-]+$`)
+	validNamePattern = regexp.MustCompile(`^[a-zа-я0-9а-яА-Я_.-]+$`)
 
 	// NOTE: All below regex matching do not perform any extra validation.
 	// Thus a link is produced even if the linked entity does not exist.
@@ -30,16 +30,16 @@ var (
 	// TODO: fix invalid linking issue
 
 	// mentionPattern matches all mentions in the form of "@user" or "@org/team"
-	mentionPattern = regexp.MustCompile(`(?:\s|^|\(|\[)(@[0-9a-zA-Z-_]+|@[0-9a-zA-Z-_]+\/?[0-9a-zA-Z-_]+|@[0-9a-zA-Z-_][0-9a-zA-Z-_.]+\/?[0-9a-zA-Z-_.]+[0-9a-zA-Z-_])(?:\s|[:,;.?!]\s|[:,;.?!]?$|\)|\])`)
+	mentionPattern = regexp.MustCompile(`(?:\s|^|\(|\[)(@[0-9a-zа-яA-ZА-Я-_]+|@[0-9a-zа-яA-ZА-Я-_]+\/?[0-9a-zа-яA-ZА-Я-_]+|@[0-9a-zа-яA-ZА-Я-_][0-9a-zа-яA-ZА-Я-_.]+\/?[0-9a-zа-яA-ZА-Я-_.]+[0-9a-zа-яA-ZА-Я-_])(?:\s|[:,;.?!]\s|[:,;.?!]?$|\)|\])`)
 	// issueNumericPattern matches string that references to a numeric issue, e.g. #1287
 	issueNumericPattern = regexp.MustCompile(`(?:\s|^|\(|\[|\')([#!][0-9]+)(?:\s|$|\)|\]|[:;,.?!]\s|[:;,.?!]$)`)
 	// issueAlphanumericPattern matches string that references to an alphanumeric issue, e.g. ABC-1234
-	issueAlphanumericPattern = regexp.MustCompile(`(?:\s|^|\(|\[)([A-Z]{1,10}-[1-9][0-9]*)(?:\s|$|\)|\]|:|\.(\s|$))`)
+	issueAlphanumericPattern = regexp.MustCompile(`(?:\s|^|\(|\[)([A-ZА-Я]{1,10}-[1-9][0-9]*)(?:\s|$|\)|\]|:|\.(\s|$))`)
 	// crossReferenceIssueNumericPattern matches string that references a numeric issue in a different repository
 	// e.g. gogits/gogs#12345
-	crossReferenceIssueNumericPattern = regexp.MustCompile(`(?:\s|^|\(|\[)([0-9a-zA-Z-_\.]+/[0-9a-zA-Z-_\.]+[#!][0-9]+)(?:\s|$|\)|\]|[:;,.?!]\s|[:;,.?!]$)`)
+	crossReferenceIssueNumericPattern = regexp.MustCompile(`(?:\s|^|\(|\[)([0-9a-zа-яA-ZА-Я-_\.]+/[0-9a-zа-яA-ZА-Я-_\.]+[#!][0-9]+)(?:\s|$|\)|\]|[:;,.?!]\s|[:;,.?!]$)`)
 	// spaceTrimmedPattern let's us find the trailing space
-	spaceTrimmedPattern = regexp.MustCompile(`(?:.*[0-9a-zA-Z-_])\s`)
+	spaceTrimmedPattern = regexp.MustCompile(`(?:.*[0-9a-zа-яA-ZА-Я-_])\s`)
 	// timeLogPattern matches string for time tracking
 	timeLogPattern = regexp.MustCompile(`(?:\s|^|\(|\[)(@([0-9]+([\.,][0-9]+)?(w|d|m|h))+)(?:\s|$|\)|\]|[:;,.?!]\s|[:;,.?!]$)`)
 
@@ -134,7 +134,7 @@ func parseKeywords(words []string) []string {
 	wordPat := regexp.MustCompile(`^[\pL]+$`)
 	for _, word := range words {
 		word = strings.ToLower(strings.TrimSpace(word))
-		// Accept Unicode letter class runes (a-z, á, à, ä, )
+		// Accept Unicode letter class runes (a-zа-я, á, à, ä, )
 		if wordPat.MatchString(word) {
 			acceptedWords = append(acceptedWords, word)
 		} else {
@@ -164,7 +164,7 @@ func getGiteaHostName() string {
 			giteaIssuePullPattern = regexp.MustCompile(
 				`(\s|^|\(|\[)` +
 					regexp.QuoteMeta(strings.TrimSpace(setting.AppURL)) +
-					`([0-9a-zA-Z-_\.]+/[0-9a-zA-Z-_\.]+)/` +
+					`([0-9a-zа-яA-ZА-Я-_\.]+/[0-9a-zа-яA-ZА-Я-_\.]+)/` +
 					`((?:issues)|(?:pulls))/([0-9]+)(?:\s|$|\)|\]|[:;,.?!]\s|[:;,.?!]$)`)
 		} else {
 			giteaHost = ""
